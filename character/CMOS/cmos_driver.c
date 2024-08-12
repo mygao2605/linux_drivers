@@ -14,6 +14,17 @@ struct class *cmos_class; /* Tie with the device model */
 unsigned char addrports[NUM_CMOS_BANKS] = {CMOS_BANK0_INDEX_PORT,CMOS_BANK1_INDEX_PORT,};
 unsigned char dataports[NUM_CMOS_BANKS] = {CMOS_BANK0_DATA_PORT,CMOS_BANK1_DATA_PORT,};
 
+struct cmos_dev
+{
+    unsigned short current_pointer; /* Current pointer within the
+    unsigned int size; /* Size of the bank */
+    int bank_number; /* CMOS bank number */
+    struct cdev cdev; /* The cdev structure */
+    char name[10]; 
+} *cmos_devp; 
+
+
+
 /* File operations structure. Defined in linux/fs.h */
 static struct file_operations cmos_fops = {
     .owner = THIS_MODULE, /* Owner */
