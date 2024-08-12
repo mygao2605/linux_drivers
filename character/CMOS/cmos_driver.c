@@ -1,5 +1,6 @@
+#include <linux/module.h>
 #include <linux/fs.h>
-
+#include <linux/uaccess.h>
 
 static dev_t cmos_dev_number; /* Allotted device number */
 struct class *cmos_class; /* Tie with the device model */
@@ -55,3 +56,6 @@ void __exit cmos_cleanup(void){
 
 module_init(cmos_init);
 module_exit(cmos_cleanup);
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("TuNa");
+MODULE_DESCRIPTION("CMOS driver");
