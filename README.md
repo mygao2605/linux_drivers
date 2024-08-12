@@ -21,7 +21,7 @@
 
 # 3. Major and Minor number
 # 4. Open and Release funtion
-+ Open function: int open(struct inode *inode, struct file *file).
++ Open function: int open(struct inode *inode, struct file *file). (inode represents a file on disk)
     In most drivers, open should perform the following tasks:
     - Check for device-specific errors(such as device not ready or similar hardware problems)
     - Initialize the device if it is being opened for the first time
@@ -32,3 +32,5 @@ The role of the release method is the reverse of open, Sometime you'll find that
     - Deallocate anything that open allocated in filp->private_data (Giai phong)
     - Shut down the device on last close
 # 5. Read and Write function
++ Read function : ssize_t read(struct file filp, char user buff,size_t count, loff_t *offp);
++ Write function :ssize_t write(struct file filp, const char user buff, size_t count, loff_t *offp);
