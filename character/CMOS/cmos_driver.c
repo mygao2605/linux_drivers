@@ -16,8 +16,7 @@ unsigned char dataports[NUM_CMOS_BANKS] = {CMOS_BANK0_DATA_PORT,CMOS_BANK1_DATA_
 
 struct cmos_dev
 {
-    unsigned short current_pointer; /* Current pointer within the
-    unsigned int size; /* Size of the bank */
+    unsigned short current_pointer; /* Current pointer within the unsigned int size; /* Size of the bank */
     int bank_number; /* CMOS bank number */
     struct cdev cdev; /* The cdev structure */
     char name[10]; 
